@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: freellmapp-backend
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm install && npm run build
+    startCommand: node server/dist/index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: ENCRYPTION_KEY
+        generateValue: true
