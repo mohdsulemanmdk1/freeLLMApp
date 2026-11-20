@@ -62,7 +62,7 @@ const components: Components = {
   },
 
   pre: ({ children }) => {
-    const code = (children as React.ReactElement)?.props?.children ?? ''
+    const code = (children as React.ReactElement<{ children?: string | string[] }>)?.props?.children ?? ''
     const text = typeof code === 'string' ? code : Array.isArray(code) ? code.join('') : ''
     return (
       <div className="relative group my-3">
